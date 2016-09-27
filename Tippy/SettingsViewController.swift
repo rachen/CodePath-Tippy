@@ -56,13 +56,13 @@ class SettingsViewController: UIViewController {
         let customTip = Int(customTipAmount.text!) ?? 0
         defaults.setInteger(customTip, forKey: "customTipAmount")
         defaults.synchronize()
-        if (defaultTipPicker.numberOfSegments == 4 && customTip != 0) {
-            defaultTipPicker.setTitle(String(customTip) + "%", forSegmentAtIndex: 3)
-            print("def tip picker set title")
-        }
-        else {
-            if (customTip != 0) {
-                defaultTipPicker.insertSegmentWithTitle(String(customTip) + "%", atIndex: 3, animated: true)
+        
+        if (customTip != 0) {
+            if (defaultTipPicker.numberOfSegments == 4) {
+                defaultTipPicker.setTitle(String(customTip) + "%", forSegmentAtIndex: 3)
+            }
+            else {
+                insertCustomSegment()
             }
         }
     }

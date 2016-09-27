@@ -63,6 +63,7 @@ class ViewController: UIViewController {
                 else {
                     tipPercentages[3] = Double(defaults.integerForKey("customTipAmount")) * 0.01
                 }
+                self.calculateTip(self)
             }
             
         }
@@ -86,13 +87,12 @@ class ViewController: UIViewController {
     @IBAction func calculateTip(sender: AnyObject) {
         let bill = Double(billField.text!) ?? 0
         
-        // Number formatting shenanigans
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.locale = NSLocale.currentLocale()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         print(tipControl.selectedSegmentIndex)
         print("defaults")
         print(defaults.integerForKey("customTipAmount"))
+        if (tipControl.selectedSegmentIndex < 0) {
+            return
+        }
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         

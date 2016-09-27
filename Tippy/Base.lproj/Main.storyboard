@@ -123,7 +123,7 @@
                                 <rect key="frame" x="203" y="203" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="customTipEdited:" destination="q3C-A8-I8t" eventType="editingDidEnd" id="ouO-zW-afz"/>
                                     <action selector="customTipEdited:" destination="q3C-A8-I8t" eventType="editingChanged" id="yHK-tN-I6r"/>
